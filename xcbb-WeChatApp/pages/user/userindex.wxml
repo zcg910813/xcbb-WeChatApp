@@ -1,0 +1,66 @@
+<!--pages/user/userindex.wxml-->
+<view class='user_wrap'></view>
+<view class='userwrap'>
+	<view class='img_border'>
+		<image src='{{userInfo.userMap.photo}}'></image>
+		<view class='local_tyrants'>
+			<text>9</text>
+		</view>
+		<navigator url="/pages/compile/compile">
+			<image class='share' bindtap='bianji' src='../image/share.png'></image>
+		</navigator>
+	</view>
+	<view>
+		<view class='headimg_name'>
+			<!--<text class="nameone">《这个杀手太猛》</text>-->
+			<text class='nametow'>{{userInfo.userMap.nick}}</text>
+			<view class='moon'>
+				<image src='../image/moon.png'></image>
+				<text>22</text>
+			</view>
+		</view>
+	</view>
+	<view class='progress'>
+		<image class='tuhao' src='../image/tuhao.png'></image>
+		<view class='progressin' style="width: {{width}}%;">
+		</view>
+		<text>{{userInfo.userMap.consume_level}}/{{userInfo.userMap.consume_exp}}</text>
+		<image class='explain' src='../image/explain.png'></image>
+	</view>
+	<view class='clear'></view>
+	<text class='usernames'>小草ID：{{userInfo.userMap.uid}}</text>
+	<text class='usersignature'>{{userInfo.userMap.sign}}</text>
+
+	<view class='user_statistics'>
+		<view class='user_statistics_li'>
+			<text class='num'>{{userInfo.userMap.followTotal}}</text>
+			<text>关注</text>
+		</view>
+
+		<view class='user_statistics_li'>
+			<text class='num'>{{userInfo.userMap.finsTotal}}</text>
+			<text>粉丝</text>
+		</view>
+		<view class='clear'></view>
+	</view>
+</view>
+
+<image class='userbkbj' src='../image/userbkbj.png'></image>
+<view class='clear'></view>
+
+<view class='list_ul'>
+	<navigator url="/pages/pay/pay" hover-class="navigator-hover">
+		<view class='list_ul_li'>
+			<text class='list_ul_li_text'>金币</text>
+			<view class='list_ul_li_right'>
+				<text>{{userInfo.userMap.coin_balance}}</text>
+				<image class='goldimg' src='../image/gold.png'></image>
+				<image class='righttriangle' src='../image/righttriangle.png'></image>
+			</view>
+			<view class='clear'></view>
+		</view>
+	</navigator>
+</view>
+
+<import src="../../common/footer/footer.wxml" />
+<template is="tabbar" data="{{footerNav}}" />

@@ -1,0 +1,61 @@
+<!--pages/compile/compile.wxml-->
+<view class='compile_bj'></view>
+<view class='head_wrap' bindtap="changeheadimg">
+	<text class='headename'>头像</text>
+	<view class='head_wrap_right'>
+		<image class='headimg' src='{{userinfo.userMap.photo}}'></image>
+		<image class='compileright' src='../image/righttriangle.png'></image>
+	</view>
+	<view class='clear'></view>
+</view>
+
+<view class='compile_ul'>
+	<view class='compile_ul_li'>
+		<navigator url="/pages/user/chageusername/index?&username={{userinfo.userInfo.nick}}&birthday={{birthday}}" hover-class="navigator-hover">
+			<text>昵称</text>
+			<text>{{userinfo.userMap.nick}}</text>
+			<image class='compilerights' src='../image/righttriangle.png'></image>
+		</navigator>
+	</view>
+	<view class='compile_ul_li'>
+		<text>用户ID</text>
+		<text>{{userinfo.userMap.uid}}</text>
+	</view>
+	<view class='compile_ul_li' bindtap='selseisman'>
+		<text>性别</text>
+		<text>{{issex}}生</text>
+		<image class='compilerights' src='../image/righttriangle.png'></image>
+	</view>
+	<view class='compile_ul_li tui-picker-detail'>
+		<picker mode="date" value="{{date}}" start="1800-10-01" bindchange="changeDate">
+			<text>年龄</text>
+			<text>{{userinfo.userMap.birthday}}</text>
+			<image class='compilerights' src='../image/righttriangle.png'></image>
+		</picker>
+	</view>
+	<view class='compile_ul_li'>
+		<picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+			<text>家乡</text>
+			<text>{{userinfo.userMap.province}}{{userinfo.userMap.city}}{{userinfo.userMap.area}}</text>
+			<image class='compilerights' src='../image/righttriangle.png'></image>
+		</picker>
+	</view>
+	<view class='compile_ul_li signclass'>
+		<navigator url="/pages/user/chageuserqm/index?sign={{userinfo.userMap.sign}}&birthday={{birthday}}" hover-class="navigator-hover">
+			<text>签名</text>
+			<text><!--{{userinfo.userMap.sign}}-->大阿诗丹顿撒旦大阿诗丹顿撒旦大阿诗丹顿撒旦大阿诗丹顿撒旦大阿诗丹顿撒旦大阿诗丹顿撒旦大阿诗丹顿撒旦大阿诗丹顿撒旦</text>
+			<image class='compilerights' src='../image/righttriangle.png'></image>
+			<view class="clear"></view>
+		</navigator>
+	</view>
+
+</view>
+
+<view class='zhezhaos' wx:if="{{chooseSize}}"></view>
+
+<view class='selec_isman_weap' animation="{{animationData}}" wx:if="{{chooseSize}}">
+	<view class='selec_ul'>
+		<view bindtap='ismax' data-index="{{index}}" data-name='{{item}}' wx:for="{{sex}}">{{item}}</view>
+	</view>
+	<view class='close' bindtap='colsoes' wx:if="{{chooseSize}}">取消</view>
+</view>

@@ -1,0 +1,8 @@
+                                                                      <!--pages/user/chageuserqm/index.wxml-->
+<view class='slbjs'></view>
+<view class="section">
+	<image class='close_empty' src='../../image/close_empty.png' bindtap="empty"></image>
+	<input bindinput="acquire" maxlength="6" type="" name="" value="{{username}}"/>
+</view>
+
+<view class='save' bindtap='saves'>保存</view>

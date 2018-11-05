@@ -1,0 +1,30 @@
+<!--pages/userlist/userlist.wxml-->
+<view class="body"></view>
+<view class="usernav">
+	<view class="usernav_li {{index==statics?'active':''}}"  wx:for="{{usernav}}" data-index = "{{index}}" bindtap="usernavs">
+		{{item}}
+	</view>
+	<view class="clear"></view>
+</view>
+
+
+
+<view class="userlist">
+	<view class="userlist_li" wx:for="{{userlist}}">
+		<view class="userheadimg_iframe">
+			<image class="userheadimg" src='{{item.photo}}'></image>
+			<image class="headr_right_img" src='/pages/image/tuhao.png'></image>
+		</view>
+		<view class="type_user">
+			<image class="user_type_img1" src="/pages/image/wode.png"></image>
+			<text>新人</text>
+		</view>
+		<text class="tourist">{{item.nick}}</text>
+		<view class="type_active">
+			<image class="type_active_img" src="/pages/image/wujiaox.png"></image>
+			<text>1</text>
+			<view class="clear"></view>
+		</view>
+		<view class="clear"></view>
+	</view>
+</view>

@@ -1,0 +1,129 @@
+/* pages/compile/compile.wxss */
+.compile_bj{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #201c2f;
+  z-index: -1;
+  top: 0;
+}
+.compileright{
+  width: 15rpx;
+  height: 29rpx;
+  float: right;
+  margin-left: 20rpx;
+  margin-top: 20rpx;
+}
+.head_wrap{
+  padding: 14rpx 24rpx;
+  background: #211b38;
+  border: 1px solid #353044;
+  margin-top: 26rpx;
+  border-left: none;
+  border-right: none;
+}
+.headimg{
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+}
+.headename{
+  float: left;
+  color: #b4b4ff;
+  font-family: "微软雅黑";
+  font-size: 25rpx;
+  margin-top: 15rpx;
+}
+.head_wrap_right{
+  float: right;
+}
+
+.compile_ul{
+  margin-top: 20rpx;
+}
+.compile_ul view:nth-child(1){
+   border-top: 1px solid #353044;
+}
+.compile_ul_li{
+  line-height: 88rpx;
+  background: #211b38;
+  padding: 0 24rpx;
+  border-left: none;
+  border-right: none;  
+  border-bottom: 1px solid #353044;
+}
+.compilerights{
+  width: 15rpx;
+  height: 29rpx;
+  float: right;
+  margin-left: 20rpx;
+  margin-top: 30rpx;
+}
+.compile_ul_li text:nth-child(1){
+  font-size: 25rpx;
+  font-family: "微软雅黑";
+  color: #b4b4ff;
+  width: 200rpx;
+  display: block;
+  float: left;
+}
+.compile_ul_li text:nth-child(2){
+  font-size: 25rpx;
+  font-family: "微软雅黑";
+  margin-left: 20rpx;
+  color: #beaa78;
+}
+
+
+
+.selec_isman_weap{
+  width: 714rpx;
+  position: fixed;
+  bottom: -323rpx;
+  left: 18rpx;
+}
+.selec_ul{
+  width: 100%;
+  background: #cccad5;
+  border-radius: 20rpx;
+}
+.selec_ul view{
+  text-align: center;
+  font-family: "微软雅黑";
+  line-height: 104rpx;
+  font-size: 33rpx;
+  color: #2c74d7
+}
+.selec_ul view:nth-child(1){
+  border-bottom: 1px solid #6b6975;
+}
+.close{
+  width: 100%;
+  text-align: center;
+  font-size: 38rpx;
+  font-family: "微软雅黑";
+  color: #386de4;
+  background: #ffffff;
+  line-height: 100rpx;
+  border-radius: 20rpx;
+  margin-top: 15rpx;
+}
+
+.zhezhaos{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.6;
+  top: 0
+}
+
+.signclass{
+	padding: 24rpx;
+	line-height: 40rpx;
+}
+.signclass text:nth-child(2){
+	width: 438rpx;
+	display: block;
+	float: left;
+}

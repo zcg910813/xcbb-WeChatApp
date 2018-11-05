@@ -1,0 +1,414 @@
+<view id="bigkuaiers">
+
+</view>
+
+<view class="pages">
+	<!--<image class='meinv' src='/pages/image/bjs.jpg'></image>-->
+
+	<live-player class="zhibo" style="height: {{videoheight}}rpx; top: {{videotop}}px !important;" object-fit="fillCrop" src="{{live_url}}" mode="live" autoplay bindstatechange="statechange" binderror="error" />
+
+	<!-- <video class='video' objectFit="fill" autoplay="true" controls="false" show-center-play-btn="false" src='http: //3286.liveplay.myqcloud.com/live/3286_a607a3d84f85c0958eed69e8400b59c6.m3u8'>
+  </video>      -->
+	<!-- <view id='noUser' wx:if="{{res.isLive!=1}}" >
+    <image src='../image/bg2.png' style='width:100%;  height:100%;' />
+    <text>主播暂时不在直播~</text>
+  </view> -->
+
+	<cover-view class='zhibo_iframe_top'>
+		<cover-view class='zhibo_iframe_top_left'>
+			<cover-view class='headimg' style='background-image: url({{headimg}});'></cover-view>
+			<cover-view class='useriframe'>
+				<cover-view class='username'>{{username}}</cover-view>
+				<cover-view class='gzrs'>{{online_number}}人</cover-view>
+			</cover-view>
+
+			<cover-view class='guanzhus' wx:if="{{attention == '关注'}}" bindtap="attention">
+				{{attention}}
+			</cover-view>
+			<cover-image class="guard_img" wx:else src="/pages/image/guard.png"></cover-image>
+			<cover-view class='clear'></cover-view>
+		</cover-view>
+		<!--<cover-view class='zhibo_iframe_top_right'>
+          <cover-view class="zhobosfds">
+               <cover-view class='zhibouserlist' wx:for="{{online_users}}" bindtap="iscard">
+                  <cover-image class="fans" src='/pages/image/bis.jpg' />
+               </cover-view>
+          </cover-view> 
+      </cover-view>-->
+		<view class='clear'></view>
+	</cover-view>
+
+	<cover-view class='zhibouserlists'>
+		<cover-view class="zhibouserlist" bindtap="iscard" wx:for="{{user_list}}" id='{{item.uid}}'>
+			<cover-image class="fans" src='{{item.photo}}' />
+		</cover-view>
+	</cover-view>
+	<cover-image class="close_user_list" bindtap="skip_userlist" src="/pages/image/closeimge.png"></cover-image>
+
+	<cover-view class='zhibo_iframe_top_bottom'>
+		<cover-view class='zhibo_iframe_top_bottom_left'>
+			<cover-view class='userid_iframe'>主播id：{{zid}}</cover-view>
+		</cover-view>
+		<cover-view class="zhibo_iframe_top_bottom_right">
+			<cover-view class="zhibo_iframe_top_bottom_right_in">
+				<cover-view class="moneys">金币:{{moneyFinal}}　</cover-view>
+				<cover-view>阳光 {{lightFinal}}　</cover-view>
+			</cover-view>
+			<!--<cover-image class='sunrightsj' src='/pages/image/rightsj.png'></cover-image>-->
+		</cover-view>
+	</cover-view>
+
+	<view class='page_bottomes'>
+		<!--<scroll-view class='liaotiframe' scroll-y scroll-into-view="{{scrolls}}">
+      <view class='gonggao'>
+        <text class='gonggaousername'>小草官方帐号:</text>
+        <text class='gonggaoneirong'>　欢迎来到直播间!如直播间出现违法违规、色情低俗，抽烟喝酒等行为,请及时举报。管理员24小时在线巡查并接受举报，感谢你与小草一起努力,手守护我们共同的社区欢迎来到直播间!</text>
+        <view class="yonghus" wx:for="{{scrollsarry}}" id='a{{item.id}}'><text>用户{{item.id}}：</text>{{item.content}}</view>
+      </view>
+    </scroll-view>-->
+		<cover-view class="liaotiframe" wx-if="{{show_chat}}">
+			<cover-view class="heiehsi">
+				<cover-view wx:for="{{discuss}}" class="discuss">
+					<cover-view class="discusszze" wx:if="{{prentgift == true}}">
+						<cover-view class="activeLevel {{item.activeLevel<20?'activeLevel1-20':item.activeLevel<40?'activeLevel21-40':item.activeLevel<60?'activeLevel41-60':item.activeLevel<80?'.activeLevel61-80':item.activeLevel<100?'activeLevel101-120':''}}">{{item.activeLevel}}</cover-view>
+						<cover-view class="nickname" id="{{item.uid}}" bindtap="iscard">{{item.username}}：送给主播</cover-view>
+						<cover-view class="discuss_content">{{item.num}}{{item.isgifts}}</cover-view>
+						<view class="clear"></view>
+					</cover-view>
+					<cover-view class="discusszze" wx:elif="{{item.fromNickname == undefined}}">
+						<cover-view class="activeLevel {{item.activeLevel<20?'activeLevel1-20':item.activeLevel<40?'activeLevel21-40':item.activeLevel<60?'activeLevel41-60':item.activeLevel<80?'.activeLevel61-80':item.activeLevel<100?'activeLevel101-120':''}}">{{item.activeLevel}}</cover-view>
+						<cover-view class="nickname" id="{{item.uid}}" bindtap="iscard">{{item.nickname}}：</cover-view>
+						<cover-view class="discuss_content">{{item.context}}</cover-view>
+						<view class="clear"></view>
+					</cover-view>
+					<cover-view wx:else>
+						<cover-view class="activeLevel">72</cover-view>
+						<cover-view>
+							<cover-view class="nickname" id="{{item.uid}}" bindtap="iscard">{{item.fromNickname}}</cover-view>
+							<cover-view class="atwhoh" id="{{item.toUid}}" bindtap="iscard">@{{item.toNickname}}：</cover-view>
+							<cover-view class="discuss_content">{{item.context}}</cover-view>
+						</cover-view>
+						<view class="clear"></view>
+					</cover-view>
+				</cover-view>
+			</cover-view>
+		</cover-view>
+
+		<cover-view class='xq_footertow' wx-if="{{chooseSize}}" style='bottom:{{lltgd}}rpx'>
+			<cover-view bindtap='show_chat' class="liaotians">聊聊天</cover-view>
+			<cover-image bindtap='sunfooter' class='gift' src='/pages/image/sun.png'></cover-image>
+			<cover-image class='gift' bindtap="clipboards" src='/pages/image/dowbtns.png'></cover-image>
+			<cover-image class='gift' bindtap='backan' src='/pages/image/closes.png'></cover-image>
+			<cover-view class='clear'></cover-view>
+		</cover-view>
+	</view>
+
+	<cover-view class='sjbsss' bindtap='livehide'></cover-view>
+
+	<!--<cover-view class='slbjss' bindtap='closez' wx:if="{{chooseSize == false}}"></cover-view>-->
+
+	<cover-image class='taiyang heart3' wx-if="{{sunisshow}}" bindtap='kuxiao' animation="{{animatiotow}}" src='/pages/image/taiyang_000.png'></cover-image>
+
+	<!-- <cover-image class='taiyang heart3' wx-if="true" bindtap='kuxiao' style='bottom:{{topss}}rpx;' animation="{{animatiotow}}" src='/pages/image/taiyang_000.png'></cover-image> -->
+
+	<!-- 别人送礼物 -->
+	<cover-view class="thegfitone" wx:if="{{duslanimate.data[2].show}}">
+		<cover-image class='songlibj' src='/pages/image/songlibj.png'></cover-image>
+		<cover-image class='thegfitimg' src='{{isgifts[2].headimg}}'></cover-image>
+		<cover-view class='usersongchu'>
+			<cover-view>{{isgifts[2].username}}</cover-view>
+			<cover-view>送出{{isgifts[2].name}}</cover-view>
+		</cover-view>
+		<cover-view class="usersongchubottom">
+			<cover-image src='{{isgifts[2].giftimg}}'></cover-image>
+			<cover-view>X{{isgifts[2].num == 28||isgifts[2].num == 66||isgifts[2].num == 128||isgifts[2].num ==360||isgifts[2].num == 520||isgifts[2].num == 777||isgifts[2].num == 999||isgifts[2].num == 1314?isgifts[2].num:isgifts[2].serialNum}}</cover-view>
+		</cover-view>	
+	</cover-view>
+	<!-- <cover-image class='gigt_img' src='http://www.xiuktv.com/live/images/b70d3261-f781-4327-b1a3-965bd48351b4.png'></cover-image> -->
+
+	<cover-view class="thegfitow" wx:if="{{duslanimate.data[1].show}}">
+		<cover-image class='songlibj' src='/pages/image/songlibj.png'></cover-image>
+		<cover-image class='thegfitimg' src='{{isgifts[1].headimg}}'></cover-image>
+		<cover-view class='usersongchu'>
+			<cover-view>{{isgifts[1].username}}</cover-view>
+			<cover-view>送出{{isgifts[1].name}}</cover-view>
+		</cover-view>
+		<cover-view class="usersongchubottom">
+			<cover-image src='{{isgifts[1].giftimg}}'></cover-image>
+			<cover-view>X{{isgifts[1].num == 28||isgifts[1].num == 66||isgifts[1].num == 128||isgifts[1].num ==360||isgifts[1].num == 520||isgifts[1].num == 777||isgifts[1].num == 999||isgifts[1].num == 1314?isgifts[1].num:isgifts[1].serialNum}}</cover-view>
+		</cover-view>	
+	</cover-view>
+	<!-- <cover-image class='gigt_imgtow' src='http://www.xiuktv.com/live/images/b70d3261-f781-4327-b1a3-965bd48351b4.png'></cover-image> -->
+
+	<cover-view class="thegfitthree" wx:if="{{duslanimate.data[0].show}}">
+		<cover-image class='songlibj' src='/pages/image/songlibj.png'></cover-image>
+		<cover-image class='thegfitimg' src='{{isgifts[0].headimg}}'></cover-image>
+		<cover-view class='usersongchu'>
+			<cover-view>{{isgifts[0].username}}</cover-view>
+			<cover-view style="color: #fff;">送出{{isgifts[0].name}}</cover-view>
+		</cover-view>
+		<cover-view class="usersongchubottom">
+			<cover-image src='{{isgifts[0].giftimg}}'></cover-image>
+			<cover-view>X{{isgifts[0].num == 28||isgifts[0].num == 66||isgifts[0].num == 128||isgifts[0].num ==360||isgifts[0].num == 520||isgifts[0].num == 777||isgifts[0].num == 999||isgifts[0].num == 1314?isgifts[0].num:isgifts[0].serialNum}}</cover-view>
+		</cover-view>	
+	</cover-view>
+	<!-- <cover-image class='gigt_imgthree' src='http://www.xiuktv.com/live/images/b70d3261-f781-4327-b1a3-965bd48351b4.png'></cover-image> -->
+
+	<!-- 新人进场 -->
+	<cover-view class="new_approach" wx:if="{{newsisopcity}}">
+		<cover-image class='new_usernamebjs' src='/pages/image/new_jinc.png'></cover-image>
+		<cover-image class='new_approach_name_img' src='/pages/image/newren.png'></cover-image>
+		<cover-view class='new_approach_name'>
+			<cover-view class='new_approach_name_name'>{{new_person.richManTitile}}</cover-view>
+		</cover-view>
+		<cover-view class='new_username'>
+			<cover-view>
+				{{new_person.nick}}
+			</cover-view>
+			<cover-view>
+				进入直播间
+			</cover-view>
+		</cover-view>
+	</cover-view>
+
+	<cover-view animation="{{sun_num}}" wx-if="{{sun_num_shows}}" class="sun_appreciation">+27</cover-view>
+	<cover-image class="kuhua" wx:if="{{showss == 1}}" src='/pages/image/liuguang_0{{nums}}.png'></cover-image>
+
+	<!--守护弹窗-->
+	<view class="guard_iframe" wx:if="{{isgrop==true}}">
+		<view class="guard_head">
+			<!--头像-->
+			<view class="head_img">
+				<image class="head_portrait" src="../image/touxiang-4.png"></image>
+			</view>
+			<view class="nickname">可乐呀！</view>
+			<view class="member">成员：185人</view>
+		</view>
+		<view class="guard_min">
+			<image class="left_line guard_line" src="/pages/image/left_line.png"></image>
+			Ta的守护
+			<image class="right_line guard_line" src="/pages/image/right_line.png"></image>
+		</view>
+		<view class="guard_middle">
+			<!--<view class="middle_right">-->
+			<image src="../image/right_sjbs.png" class="image_right"></image>
+			<!--</view>-->
+			<view class="guard_image">
+				<view class="middle_img" wx:for="{{guiard_message.guardPriceLis}}">
+					<image class="images_num" src="{{item.type.icon}}"></image>
+				</view>
+			</view>
+		</view>
+		<view class="guard_min">
+			<image class="botton_line" src="/pages/image/botton_line.png"></image>
+		</view>
+		<view class="guard_head">
+			<!--头像-->
+			<text class="preciouspowder" decode="nbsp">珍爱粉  &nbsp;&nbsp;72人</text>
+			<view class="ironrodpowder"> {{guiard_message.huGeFansAlias.name}} {{guiard_message.huGeFansAlias.identify}}人</view>
+			<view class="freeadmission">(由主播免费发放)</view>
+
+		</view>
+		<view class="guard_head">
+			<button type="button" class="guard_button">守护Ta</button>
+		</view>
+	</view>
+
+	<view class="fooer_input_iframe" wx-if="{{inputhidden == true}}" style="bottom: {{binouytbottom}}rpx !important;">
+		<input type="text" class="bottominput" bindconfirm='confirmTap' focus="{{isinput}}" bindblur="bindblur" bindinput="getstatement" bindfocus="bindfocus" cursor-spacing="{{isfxied}}" confirm-hold="true" confirm-type="send" adjust-position="false" name="" id="" value="{{inputs}}" />
+		<view class="end_btn" bindtap="bindbt">
+			发送
+		</view>
+	</view>
+</view>
+
+<!-- 礼物框 -->
+<view class='gift_wrap' id="mjltest" animation="{{animationData}}">
+	<view class="gift_top">
+		<view class='gift_top_in'>
+			<text bindtap='gifttabxzs' class="gift_top_inxz">礼物</text> </view>
+		<view class='clear'></view>
+	</view>
+	<swiper class='tus' wx:if="{{gifttabxz == 0}}" skip-hidden-item-layout="true" indicator-active-color="rgba(255,255,255,.8)" indicator-color="rgba(255,255,255,.3)" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+		<block>
+			<swiper-item wx:for="{{zjszL}}" class="swipers">
+				<view class="{{item.id == clickzs?'xuanzongs':'xuanzhongw'}} swper_view" wx:for="{{item}}" bindtap='clickresult' data-src="{{item.icon}}" data-id="{{item.id}}">
+					<image class="gifts {{item.id == clickzs?' heart2':'xuanzhongw'}}" src='{{item.icon}}'></image>
+					<view class='giftname'>{{item.name}}</view>
+					<view class="gift_price">{{item.price}}</view>
+				</view>
+			</swiper-item>
+		</block>
+	</swiper>
+
+	<view class='gift_bottom'>
+		<text>{{queryOtherInfo.userInfo.coin_balance}}</text>
+		<text class='money' bindtap="recharge">金币 ></text>
+
+		<view class='gift_bottom_right'>
+			<view><text class='gift_rightnum'>1</text>
+				<image class="gift_right" src="/pages/image/rightsj.png"></image>
+			</view>
+			<view bindtap='present'>赠送</view>
+		</view>
+		<view class='clear'></view>
+	</view>
+
+</view>
+
+<!-- 阳光礼物框 -->
+<view class='gift_box' animation="{{sunfooterdata}}">
+	<view class='gift_box_top'>
+		<text>阳光可送免费礼物，主播、自己都会升级</text>
+	</view>
+
+	<swiper class='tus' indicator-active-color="rgba(255,255,255,.8)" indicator-color="rgba(255,255,255,.3)" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+		<block>
+			<swiper-item class="swipers">
+				<view class="{{item.id == clickzs?'xuanzongs':'xuanzhongw'}} swper_view" wx:for="{{zjyg}}" bindtap='clickresult' data-id="{{item.id}}" data-src="{{item.icon}}">
+					<image class="gifts {{item.id == clickzs?' heart2':'xuanzhongw'}}" src='{{item.icon}}'></image>
+					<view class='giftname'>{{item.name}}</view>
+					<view class="gift_price">{{item.num}}阳光</view>
+				</view>
+			</swiper-item>
+		</block>
+	</swiper>
+
+	<view class='gift_box_bottm'>
+		<view class='gift_box_bottm_left' bindtap="show_sun_monolayer">
+			<view class='gift_box_bottm_left_top'>
+				<text>{{queryOtherInfo.userInfo.sun_num}}</text>
+				<text>阳光</text>
+			</view>
+			<view class='today_sun'>距产出阳光：{{sun_time}}分钟</view>
+		</view>
+		<image class="jiahaos" src='/pages/image/jia.png' bindtap="show_sun_monolayer"></image>
+		<view class="{{prents == true?'sun_presents':'sun_present'}}" bindtap='present'>赠送</view>
+		<view class='clear'></view>
+	</view>
+
+</view>
+
+<view class="sunshine" wx-if="{{sun_tips == true}}">
+	<view class='sunshine_top'>
+		<text>如何获取阳光</text>
+	</view>
+	<view class="sunshine_center">
+		<view class="sunshine_cente_top">
+			<text class="sunshine_cente_top_one">开直播</text>
+			<text class="sunshine_cente_top_tow">每15分钟得阳光</text>
+		</view>
+		<view class="sunshine_cente_center">
+			<view class="sunshine_cente_center_left">
+				<text class="sunshine_cente_top_one">开直播</text>
+				<text class="sunshine_cente_top_tow">每15分钟得阳光</text>
+			</view>
+			<image class="sun_icon" src="/pages/image/sun_icon.png"></image>
+			<view class="sunshine_cente_center_right">
+				<text class="sunshine_cente_top_one">开直播</text>
+				<text class="sunshine_cente_top_tow">每15分钟得阳光</text>
+			</view>
+			<view class="clear"></view>
+		</view>
+		<view class="sunshine_cente_bottom">
+			<text class="sunshine_cente_top_one">开直播</text>
+			<text class="sunshine_cente_top_tow">每15分钟得阳光</text>
+		</view>
+		<text class="sun_tips">阳光可送免费礼物，主播、自己都升级</text>
+	</view>
+
+	<view class='gift_box_bottm'>
+		<view class='gift_box_bottm_left' bindtap="tipss">
+			<view class='gift_box_bottm_left_top'>
+				<text>104</text>
+				<text>阳光</text>
+			</view>
+			<view class='today_sun'>距产出阳光：4分钟</view>
+		</view>
+		<image class="jiahaos" src='/pages/image/jia.png' bindtap="tipss"></image>
+
+		<view class='sun_present' bindtap='present'>赠送</view>
+
+		<view class='clear'></view>
+	</view>
+
+</view>
+
+<cover-view class="datum_card" wx-if="{{card == true}}">
+	<cover-image class="card_image" src="{{queryOtherInfo.userInfo.photo}}"></cover-image>
+	<cover-view class="card_username_iframe">
+		<cover-view class="card_uisername">
+			{{queryOtherInfo.userInfo.nick}}
+		</cover-view>
+		<cover-view class="card_star_level">
+			<cover-image class="card_wujiaox" src="/pages/image/wujiaox.png"></cover-image>
+			3
+		</cover-view>
+		<cover-view class="card_star_new">
+			<cover-image class="card_new_person" src="/pages/image/new_person.png"></cover-image>
+			新人
+		</cover-view>
+	</cover-view>
+
+	<cover-view class="progress">
+		<cover-view class="tuhao">
+			<cover-image class="tuhaoimg" src="/pages/image/tuhaos.png"></cover-image>
+			<cover-view class="tuhaonum">0</cover-view>
+		</cover-view>
+		<cover-view class="progress_nums">
+			<cover-view class="progress_num">0/1000</cover-view>
+			<cover-view class="progress_backg">
+
+			</cover-view>
+		</cover-view>
+	</cover-view>
+	<cover-view class="card_userid_iframe">
+		<cover-image class="card_address" src="/pages/image/address.png"></cover-image>
+		<cover-view class="card_address_name">
+			未知　　ID:20299665
+		</cover-view>
+	</cover-view>
+	<cover-view class="signature">
+		{{queryOtherInfo.userInfo.sign}}
+	</cover-view>
+
+	<cover-view class="rongyuul">
+		<cover-view class="rongyuul_li">
+			<cover-image class="card_rongyao" src="/pages/image/rong.png"></cover-image>
+			<cover-view class="card_rongyao_name">荣耀1</cover-view>
+		</cover-view>
+		<cover-view class="rongyuul_li">
+			<cover-image class="card_rongyao" src="/pages/image/rong.png"></cover-image>
+			<cover-view class="card_rongyao_name">战力270</cover-view>
+		</cover-view>
+		<cover-view class="rongyuul_li">
+			<cover-image class="card_rongyao" src="/pages/image/rong.png"></cover-image>
+			<cover-view class="card_rongyao_name">暂无坐骑</cover-view>
+		</cover-view>
+	</cover-view>
+	<cover-view class="rongyuul2">
+		<cover-view class="rongyuul_li2">
+			<cover-view class="card_rongyao_name2">荣耀1</cover-view>
+			<cover-image class="card_rongyao2" src="/pages/image/rong.png"></cover-image>
+		</cover-view>
+		<cover-view class="rongyuul_li2">
+			<cover-view class="card_rongyao_name2">战力270</cover-view>
+			<cover-image class="card_rongyao2" src="/pages/image/rong.png"></cover-image>
+		</cover-view>
+		<cover-view class="rongyuul_li2">
+			<cover-view class="card_rongyao_name2">暂无坐骑</cover-view>
+			<cover-image class="card_rongyao2" src="/pages/image/rong.png"></cover-image>
+		</cover-view>
+	</cover-view>
+
+	<cover-view class="card_bottom">
+		<cover-view class="card_bottom_name" bindtap="attentionbottom">{{queryOtherInfo.userInfo.follFlag==1?'已关注':(queryOtherInfo.userInfo.follFlag==0?'+关注':'拉黑')}}</cover-view>
+		<cover-view class="card_bottom_name" bindtap="pesionse">@Ta</cover-view>
+		<cover-view class="card_bottom_name" bindtap="skip_index">主页</cover-view>
+
+	</cover-view>
+
+</cover-view>
+
+<import src="../../common/footer/footer.wxml" />
+<template is="tabBar" wx-if="{{chooseSize}}" data="{{tabBar:bindData.tabBar}}" />

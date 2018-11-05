@@ -1,0 +1,11 @@
+@import "/common/footer/footer.wxss";
+.clear{
+  clear: both;
+}
+.slbjs{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgb(39, 31, 56);
+  z-index: -1;
+}

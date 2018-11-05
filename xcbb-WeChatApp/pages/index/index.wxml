@@ -1,0 +1,46 @@
+<!--index.wxml-->
+<view class='indexbs'></view>
+
+<view class="marque_iframe" wx:if="{{marquees}}">
+	<view animation="{{animationData}}" class="marquee">
+		{{marqueetxt}}
+	</view>
+</view>
+
+<view class="page-section page-section-spacing swiper notice_list">
+	<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}" interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}px" next-margin="{{nextMargin}}px">
+		<block wx:for="{{banner_list}}" wx:key="">
+			<navigator url="/pages/webview/webview?&linkurl={{item.linkurl}}">
+				<swiper-item>
+					<image src='{{item.imgurl}}'></image>
+				</swiper-item>
+			</navigator>
+		</block>
+	</swiper>
+</view>
+
+<view class="wrap">
+
+	<!-- <input type='text' class='sosuo' placeholder='搜索直播间或频道'>123</input> -->
+
+	<view class="list_ul">
+		<view class="list_li" wx:for="{{shujlist}}" wx:key="key" bindtap="tiaozhuan">
+			<navigator url="index_xq?zid={{item.zbid}}&uid={{userInfo.uid}}&username={{item.zbname}}&sid={{item.cid}}&live_url={{item.urlRtmbReal}}&headimg={{item.headimgurl}}" hover-class="navigator-hover">
+				<view class='yjiaz' style='background-image: url({{item.headimgurl}});'>
+					<!-- <image src='{{item.headimgurl}}' /> -->
+				</view>
+			</navigator>
+			<view class='list_li_title'>
+				<text class="list_li_title_left">{{item.zbname}}</text>
+				<text class="list_li_title_right">{{item.showdata}}人</text>
+				<view class="clear"></view>
+			</view>
+			<view class="clear"></view>
+		</view>
+		<view class="clear"></view>
+
+	</view>
+</view>
+
+<import src="../../common/footer/footer.wxml" />
+<template is="tabbar" data="{{footerNav}}" />

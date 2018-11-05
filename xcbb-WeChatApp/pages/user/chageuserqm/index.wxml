@@ -1,0 +1,8 @@
+<!--pages/user/chageuserqm/index.wxml-->
+<view class='slbjs'></view>
+<view class="section">
+  <textarea bindinput="bindinput" maxlength="40" placeholder="{{signature}}" />
+  <text>{{num}}</text>
+</view>
+
+<view class='save' bindtap='saves'>保存</view>

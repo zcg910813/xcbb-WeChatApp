@@ -1,0 +1,153 @@
+/* pages/pay/pay.wxss */
+.body{
+  width: 100%;
+  height: 1280rpx;
+  background: rgb(34,29,49);
+}
+.userwrap{
+  padding: 38rpx 0;
+  background: rgb(39, 31, 56);
+  text-align: center
+}
+.img_border image{
+  border-radius: 50%;
+  border: 1rpx solid #fff;
+  width: 100rpx;
+  margin: 0;
+  padding: 0;
+  height: 100rpx;
+  display: block
+}
+.imagheader{
+	width: 100rpx;
+	height: 100rpx;
+	display: block;
+	border-radius: 50%;
+	margin: 0 auto;
+}
+.img_border{
+  padding: 4rpx;
+  display:inline-block;
+  margin: 0 auto;
+  border-radius: 50%;
+  position: relative;
+}
+.share{
+  width: 34rpx !important;
+  height: 34rpx !important;
+  position: absolute;
+  right: -50rpx;
+  border-radius: 0 !important;
+  border: none !important;
+  bottom: -10rpx;
+}
+.headimg_name{
+  position: relative;
+  width: 468rpx;
+  margin: 0 auto
+}
+.headimg_name text{
+  font-size: 27rpx;
+  font-family: "微软雅黑"
+}
+.nameone{
+  color: #f9c54f;
+}
+.nametow{
+  color: #fff;
+}
+
+.ceng{
+  height:38rpx;
+  background: rgb(22,28,38); 
+}
+
+
+.jiageList{
+  display: block;
+  background: rgb(34,29,49);
+  
+}
+.jiageList .titel{
+  display: inline-block;
+  width: 100%;
+  height: 42rpx;
+  line-height: 42rpx;
+  font-size: 35rpx;
+  color: rgb(110,110,160);
+  padding-left:15rpx;
+}
+.jiageList .listBox{
+  /* margin-left: 15rpx; */
+  height: 646rpx;
+  color: rgb(159,139,129);
+  margin-top:15rpx;
+}
+.jiageList .listBox view{
+  margin-left: 15rpx;
+  margin-bottom: 15rpx;
+  width: 350rpx;
+  height: 142rpx;
+  float: left;
+  border: 1rpx solid rgb(110,110,160);
+  box-sizing: border-box;
+  border-radius: 10rpx;
+}
+.jiageList .listBox view text{
+  display: block;
+  height: 71rpx;
+  line-height: 71rpx;
+  text-align: center;
+  font-size:32rpx;
+}
+.active{
+  background-color:rgb(108,108,194);
+  border:rgb(108,108,194);
+  color: #fff;
+}
+
+.foot{
+  width: 100%;
+  height: 170rpx;
+  position: fixed;
+  left:0;
+  bottom: 0;
+  background: rgb(24,19,38);
+}
+.foot view{
+  height: 85rpx;
+  text-align: center;
+}
+.foot view text{
+  display: inline-block;
+  margin-top:20rpx;
+  width: 482rpx;
+  height: 75rpx;
+  line-height: 75rpx;
+  color: rgb(240,219,234);
+  background-color:rgb(125,116,177); 
+  border-radius: 38rpx;
+  font-size:32rpx;
+}
+.foot text{
+  display: inline-block;
+  width: 100%;
+  height: 75rpx;
+  line-height: 75rpx;
+  text-align: center;
+  color: rgb(159,139,129);
+  font-size: 32rpx;
+}
+.nicheng{
+	font-size: 27rpx;
+}
+.local_tyrants text{
+  color: #fff
+}
+.nametow{
+	color: #a7caf4;
+	font-size: 18rpx;
+}
+.yuge{
+	color: #9f959e;
+}

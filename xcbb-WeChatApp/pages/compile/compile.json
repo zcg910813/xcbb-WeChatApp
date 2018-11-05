@@ -1,0 +1,8 @@
+{
+  "backgroundTextStyle": "dark",
+  "navigationBarBackgroundColor": "#160e25",
+  "navigationBarTitleText": "编辑",
+  "navigationBarTextStyle": "#fff",
+  "enablePullDownRefresh": true,
+  "backgroundColorBottom": "#1d1d1d"
+}

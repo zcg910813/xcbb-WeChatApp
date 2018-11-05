@@ -1,0 +1,12 @@
+<!--pages/common/footer/footer.wxml-->
+<template name="tabbar">
+	<view class='footer_index'>
+			<view class='footer_abs'></view>
+			<view class='tiaoz' wx:for="{{footerNav}}" bindtap="clickNav" data-index="{{index}}" >
+				<view class='bjyuans'>
+					<image src='../image/videf.png'></image>
+					<text>{{item.navName}}</text>
+				</view>
+			</view>
+	</view>
+</template>

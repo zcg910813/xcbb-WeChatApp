@@ -1,0 +1,42 @@
+<!--pages/pay/pay.wxml-->
+
+<!-- 头部用户信息 -->
+<view class='body'>
+<view class='userwrap'>
+	<image class="imagheader" src='{{userinfo.photo}}'></image>
+    <view class='img_border'>
+      <view class='local_tyrants'>
+        <text class="nicheng">{{userinfo.nick}}</text>
+      </view>
+    </view>
+    <view>
+      <view class='headimg_name'>
+        <!--<text class="nameone">《这个杀手太猛》</text>-->
+        <text class='nametow'><text class='yuge'>余额：</text>{{userinfo.coin_balance}}金币</text>
+      </view>
+    </view>
+</view>
+
+<view class='ceng'></view>
+<!-- 主体内容列表 -->
+
+<view class='jiageList'>
+  <view class='titel'>选择充值金额：</view>
+  <scroll-view scroll-y="true" class='listBox'>
+    <view class="{{item.id==xuanzhongId?'active':''}}" wx:for="{{chongzhiList}}" wx:key="{{index}}" data-id="{{item.id}}" bindtap='xuanzhong'
+      >
+      <text>{{item.goods_name}}</text>
+      <text>{{item.price}}元</text>
+    </view>
+
+  </scroll-view>
+</view>
+
+<!-- 底部付款按钮 -->
+<view class='foot'>
+  <view>
+    <text bindtap='pay'>充值</text>
+  </view>
+  <text>如有问题,请联系QQ客服:3061680386</text>
+</view>
+</view>

@@ -1,0 +1,150 @@
+/* pages/openGuardians/openguardians.wxss */
+.body{
+  width: 100%;
+  height: 1280rpx;
+  background: rgb(34,29,49);
+}
+
+/* 头部主播信息样式开始 */
+.userwrap{
+  padding: 38rpx 0;
+  background: rgb(39, 31, 56);
+  overflow: hidden;
+  border-bottom: 10rpx solid rgb(39,35,62);
+}
+.img_border image{
+  border-radius: 50%;
+  border: 1rpx solid #fff;
+  width: 100rpx;
+  margin: 0;
+  padding: 0;
+  height: 100rpx;
+  display: block
+}
+.img_border{
+  float: left;
+  padding: 4rpx;
+  display:block;
+  margin-left:35rpx ;
+  border-radius: 50%;
+  position: relative;
+}
+.uesrInfo{
+  display: block;
+  margin-top:30rpx;
+  margin-left:20rpx;
+  float: left;
+  width: 550rpx;
+  overflow: hidden;
+}
+.nickName,.qianMing{
+  display: block;
+  height: 45rpx;
+  font-size: 35rpx;
+  text-align: bottom;
+  font-weight: 550
+}
+.nickName{
+  color:#fff; 
+  margin-bottom: 10rpx;
+} 
+.qianMing{
+  color: rgb(120,113,155)
+}
+/* 头部主播信息样式结束 */
+
+/* 商品列表部分开始 */
+.listBox{
+  display: block;
+  background: rgb(42,33,60);
+  color: rgb(114,113,147);
+  padding-left: 20rpx;
+  font-size: 32rpx;
+  overflow: auto;
+}
+.titleBox{
+  display: block;
+  margin-top:35rpx;
+  overflow: hidden;
+}
+.titel{
+  display: block;
+  float: left;
+  width: 130rpx;
+  height: 45rpx;
+}
+.line{
+  display: block;
+  width: 550rpx;
+  margin-top:20rpx ;
+  margin-left: 20rpx;
+  float: left;
+  border-top:5rpx solid rgb(48,46,60);
+}
+.shenfenList{
+  display: block;
+  margin-top:35rpx;
+  overflow: hidden;
+}
+.shenfenList .shenfen{
+  display: block;
+  float: left;
+  width: 150rpx;
+  height: 85rpx;
+  line-height: 85rpx;
+  margin-right: 32rpx;
+  border: 1rpx solid rgb(109,107,144);
+  border-radius: 15rpx;
+  text-align: center;
+  box-sizing: border-box;
+}
+.shenfen text{
+  display: block;
+  height: 41rpx;
+  line-height: 41rpx;
+  font-size:30rpx;
+}
+.youxiaoTime{
+  display: block;
+  margin-top:20rpx; 
+}
+
+.teQuan{
+  display: block;
+  width:150rpx;
+  height: 150rpx;
+  margin-right:32rpx; 
+  float: left;
+  text-align: center;
+  font-size: 32rpx;
+}
+
+.active{
+  background-color:rgb(108,108,194);
+  border:rgb(108,108,194);
+  color: #fff;
+}
+
+.foot{
+  width: 100%;
+  height: 135 rpx;
+  position: fixed;
+  left:0;
+  bottom: 0;
+  background: rgb(24,19,38);
+}
+.foot view{
+  height: 135rpx;
+  text-align: center;
+}
+.foot view text{
+  display: inline-block;
+  margin-top:20rpx;
+  width: 650rpx;
+  height: 75rpx;
+  line-height: 75rpx;
+  color: rgb(255,249,255);
+  background-color:rgb(125,116,177); 
+  border-radius: 38rpx;
+  font-size:32rpx;
+}

@@ -1,0 +1,111 @@
+/* pages/userlist/userlist.wxss */
+page{
+	overflow: auto !important;
+}
+.usernav {
+	background: #1a1028;
+	position: fixed;
+	top: 0;
+  z-index: 20;
+	width: 100%;
+}
+.active{
+	border-bottom: 1px solid #a8d9e2;
+	color: #fff !important;
+}
+.usernav_li {
+	width: 50%;
+	float: left;
+	color: #a68b8a;
+	text-align: center;
+	line-height: 72rpx;
+	font-size: 30rpx;
+}
+
+.body {
+	background: #262137;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	top: 0;
+	z-index: -1;
+}
+.userlist{
+	margin-top: 80rpx;
+}
+.userheadimg {
+	position: relative;
+}
+
+.userheadimg {
+	width: 72rpx;
+	height: 72rpx;
+	border-radius: 50%;
+	border: 2rpx solid #5f4b69;
+}
+
+.userheadimg_iframe {
+	position: relative;
+	float: left;
+}
+
+.userlist_li {
+	padding: 15rpx 18rpx;
+	border-bottom: 1px solid #353046;
+}
+
+.headr_right_img {
+	width: 27rpx;
+	height: 27rpx;
+	position: absolute;
+	right: 5rpx;
+	bottom: 10rpx;
+}
+
+.type_user {
+	background: #73dc63;
+	float: left;
+	border-radius: 10rpx;
+	padding: 5rpx 10rpx;
+	margin-top: 20rpx;
+	margin-left: 20rpx;
+}
+
+.user_type_img1 {
+	width: 20rpx;
+	height: 20rpx;
+	float: left;
+}
+
+.type_user text {
+	float: left;
+	color: #fff;
+	font-size: 15rpx;
+}
+.tourist{
+	float: left;
+	color: #8077b1;
+	margin-left: 10rpx;
+	font-size: 20rpx;
+	margin-top: 20rpx;
+}
+.type_active{
+	background: #82c6ad;
+	float: left;
+	padding: 3rpx 6rpx;
+	margin-top: 25rpx;
+	margin-left: 10rpx;
+	border-radius: 5rpx;
+}
+.type_active_img{
+	float: left;
+	width: 15rpx;
+	height: 15rpx;
+	margin-top: 2rpx;
+}
+.type_active text{
+	color: #fff;
+	font-size: 16rpx;
+	float: left;
+}
